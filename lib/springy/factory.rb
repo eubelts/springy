@@ -184,15 +184,14 @@ module Springy
       json[:weight] = params[:weight] if params[:weight]
       Node.new(json, context)
     end
-    
-    # # https://www.elastic.co/guide/en/elasticsearch/reference/current/querydslfunctionscorequery.html#functiondecay
-    # def decay_function_node(params = {}, context = default_context)
-    #   boost_params        = extract_boost_params!(params)
-    #   context[:fn_score]  = extract_function_score_options!(params)
-    #   decay_fn            = params.delete(:decay_function)
-    #   field               = params.delete(:field)
-    #   Node.new({decay_fn => { field => params}}.merge(boost_params), context)
-    # end
 
+    # https://www.elastic.co/guide/en/elasticsearch/reference/current/querydslfunctionscorequery.html#functiondecay
+    def decay_function_node(params = {}, context = default_context)
+      boost_params        = extract_boost_params!(params)
+      context[:fn_score]  = extract_function_score_options!(params)
+      decay_fn            = params.delete(:decay_function)
+      field               = params.delete(:field)
+      Node.new({decay_fn => { field => params}}.merge(boost_params), context)
+    end
   end
 end

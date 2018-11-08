@@ -155,10 +155,10 @@ module Springy
       end
     end
 
-    # def near(params = {})
-    #   add_params params, :boost, :decay_function_node
-    # end
-    #
+    def near(params = {})
+      add_params params, :boost, :decay_function_node
+    end
+
     def request
       @request ||= begin
         root.merge(body: body.merge(query: collector.as_json))
