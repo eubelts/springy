@@ -1,4 +1,4 @@
-module Stretchy
+module Springy
   module Factory
 
     DEFAULT_WEIGHT  = 1.5

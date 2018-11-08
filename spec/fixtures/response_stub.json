@@ -13,7 +13,7 @@
       {
         "_shard": 4,
         "_node": "zOl44WpdTNuEKuJXuqq5NA",
-        "_index": "stretchy_test",
+        "_index": "springy_test",
         "_type": "game_dev",
         "_id": "3",
         "_score": 0.053604983,
@@ -94,7 +94,7 @@
       {
         "_shard": 2,
         "_node": "zOl44WpdTNuEKuJXuqq5NA",
-        "_index": "stretchy_test",
+        "_index": "springy_test",
         "_type": "game_dev",
         "_id": "1",
         "_score": 0.033902764,
@@ -178,7 +178,7 @@
       {
         "_shard": 3,
         "_node": "zOl44WpdTNuEKuJXuqq5NA",
-        "_index": "stretchy_test",
+        "_index": "springy_test",
         "_type": "game_dev",
         "_id": "2",
         "_score": 0.027122213,

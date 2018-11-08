@@ -1,4 +1,4 @@
-module Stretchy
+module Springy
   class AndCollector
 
     extend Forwardable

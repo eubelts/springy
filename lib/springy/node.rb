@@ -1,4 +1,4 @@
-module Stretchy
+module Springy
   class Node
 
     attr_reader :json, :context

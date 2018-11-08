@@ -1,6 +1,6 @@
-require 'stretchy/utils'
+require 'springy/utils'
 
-module Stretchy
+module Springy
   class API
     DEFAULT_BOOST     = 2.0
     DEFAULT_PER_PAGE  = 10
@@ -166,7 +166,7 @@ module Stretchy
     end
 
     def response
-      @response ||= Stretchy.search(request)
+      @response ||= Springy.search(request)
     end
 
     def results_obj

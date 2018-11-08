@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Stretchy do
+describe Springy do
   subject { described_class }
 
   it 'has a version number' do
-    expect(Stretchy::VERSION).not_to be nil
+    expect(Springy::VERSION).not_to be nil
   end
 
   it 'counts from the index' do
