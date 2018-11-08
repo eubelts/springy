@@ -30,12 +30,12 @@ module Springy
     #   (args - context.keys).empty?
     # end
     #
-    # def limit(size = nil)
-    #   return @root[:size] || DEFAULT_PER_PAGE unless size
-    #   add_root size: size.to_i
-    # end
-    # alias :limit_value :limit
-    #
+    def limit(size = nil)
+      return @root[:size] || DEFAULT_PER_PAGE unless size
+      add_root size: size.to_i
+    end
+    alias :limit_value :limit
+    
     # def offset(from = nil)
     #   return @root[:from] || 0 unless from
     #   add_root from: from.to_i
@@ -65,12 +65,12 @@ module Springy
     #   add_root explain: true
     # end
     #
-    # def fields(*list)
-    #   add_root _source: list
-    # end
-    #
-    # alias :source :fields
-    #
+    def fields(*list)
+      add_root _source: list
+    end
+
+    alias :source :fields
+
     def aggs(params = {})
       add_body aggs: params
     end
@@ -206,14 +206,14 @@ module Springy
         ))
       end
 
-      # def add_root(options = {})
-      #   self.class.new(opts.merge(
-      #     nodes:    collector.nodes,
-      #     root:     root.merge(options),
-      #     body:     body,
-      #     context:  context
-      #   ))
-      # end
+      def add_root(options = {})
+        self.class.new(opts.merge(
+          nodes:    collector.nodes,
+          root:     root.merge(options),
+          body:     body,
+          context:  context
+        ))
+      end
 
       def add_body(options = {})
         self.class.new(opts.merge(

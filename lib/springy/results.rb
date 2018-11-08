@@ -42,14 +42,14 @@ module Springy
     #   Utils.current_page(offset, limit)
     # end
     #
-    # def total
-    #   response['hits']['total']
-    # end
-    # alias :total_count  :total
-    # alias :count        :total
-    # alias :length       :total
-    # alias :size         :total
-    #
+    def total
+      response['hits']['total']
+    end
+    alias :total_count  :total
+    alias :count        :total
+    alias :length       :total
+    alias :size         :total
+    
     # def total_pages
     #   (total.to_f / limit_value).ceil
     # end
