@@ -9,10 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ["eubelts"]
   spec.email         = ["eunicesausbeltran@yahoo.com"]
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
   spec.summary       = %q{Query builder for Elasticsearch}
   spec.description   = %q{ActiveRecord-like query builder for Elasticsearch}
   # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
