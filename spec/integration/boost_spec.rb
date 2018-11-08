@@ -37,20 +37,20 @@ describe 'Boosts', :integration do
       check_boost subject.boost.field_value(field: :salary)
     end
 
-    # specify 'with field value options' do
-    #   check_boost subject.boost.field_value(
-    #     field:    :salary,
-    #     factor:   1.2,
-    #     modifier: :square
-    #   )
-    # end
-    #
-    # specify 'with weight' do
-    #   check_boost subject.boost.field_value(
-    #     field:  :salary,
-    #     factor: 1.2,
-    #     weight: 100
-    #   )
-    # end
+    specify 'with field value options' do
+      check_boost subject.boost.field_value(
+        field:    :salary,
+        factor:   1.2,
+        modifier: :square
+      )
+    end
+
+    specify 'with weight' do
+      check_boost subject.boost.field_value(
+        field:  :salary,
+        factor: 1.2,
+        weight: 100
+      )
+    end
   end
 end
