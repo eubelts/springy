@@ -142,19 +142,19 @@ module Springy
         add_nodes Factory.raw_boost_node(params, subcontext)
       end
     end
-    
+
     def field_value(params = {})
       add_params params, :boost, :field_value_function_node
     end
 
-    # def random(params)
-    #   if params.is_a? Hash
-    #     add_params params, :boost, :random_score_function_node
-    #   else
-    #     add_params Hash[seed: params], :boost, :random_score_function_node
-    #   end
-    # end
-    #
+    def random(params)
+      if params.is_a? Hash
+        add_params params, :boost, :random_score_function_node
+      else
+        add_params Hash[seed: params], :boost, :random_score_function_node
+      end
+    end
+
     # def near(params = {})
     #   add_params params, :boost, :decay_function_node
     # end

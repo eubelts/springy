@@ -178,13 +178,13 @@ module Springy
       Node.new(boost_params.merge(field_value_factor: params), context)
     end
 
-    # # https://www.elastic.co/guide/en/elasticsearch/reference/current/querydslfunctionscorequery.html#functionrandom
-    # def random_score_function_node(params, context = default_context)
-    #   json          = {random_score: {seed: params[:seed]}}
-    #   json[:weight] = params[:weight] if params[:weight]
-    #   Node.new(json, context)
-    # end
-    #
+    # https://www.elastic.co/guide/en/elasticsearch/reference/current/querydslfunctionscorequery.html#functionrandom
+    def random_score_function_node(params, context = default_context)
+      json          = {random_score: {seed: params[:seed]}}
+      json[:weight] = params[:weight] if params[:weight]
+      Node.new(json, context)
+    end
+    
     # # https://www.elastic.co/guide/en/elasticsearch/reference/current/querydslfunctionscorequery.html#functiondecay
     # def decay_function_node(params = {}, context = default_context)
     #   boost_params        = extract_boost_params!(params)
