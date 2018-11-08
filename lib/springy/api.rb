@@ -41,25 +41,25 @@ module Springy
       add_root from: from.to_i
     end
 
-    # # page 1 = from: 0, size: per_page
-    # # page 2 = from: per_page, size: per_page
-    # def page(num = nil, params = {})
-    #   return current_page if num.nil?
-    #   per   = params[:limit] || params[:per_page] || limit
-    #   per   = per.to_i > 0 ? per.to_i : 1
-    #   start = [num.to_i - 1, 0].max
-    #   add_root from: start * per, size: per
-    # end
+    # page 1 = from: 0, size: per_page
+    # page 2 = from: per_page, size: per_page
+    def page(num = nil, params = {})
+      return current_page if num.nil?
+      per   = params[:limit] || params[:per_page] || limit
+      per   = per.to_i > 0 ? per.to_i : 1
+      start = [num.to_i - 1, 0].max
+      add_root from: start * per, size: per
+    end
 
     # def per(num = nil)
     #   return limit if num.nil?
     #   add_root size: [num.to_i, 1].max
     # end
     # alias :per_page :per
-    #
-    # def current_page
-    #   Utils.current_page(offset, limit)
-    # end
+    
+    def current_page
+      Utils.current_page(offset, limit)
+    end
 
     def explain
       add_root explain: true
