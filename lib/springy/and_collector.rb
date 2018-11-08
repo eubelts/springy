@@ -13,10 +13,10 @@ module Springy
       @context  = context
     end
 
-    # def with_context(new_context)
-    #   self.class.new nodes, new_context
-    # end
-    #
+    def with_context(new_context)
+      self.class.new nodes, new_context
+    end
+
     # def context?(*args)
     #   args.all? {|c| !!context[c] }
     # end

@@ -75,10 +75,10 @@ module Springy
       add_body aggs: params
     end
 
-    # def highlight(params = {})
-    #   add_body highlight: params
-    # end
-    #
+    def highlight(params = {})
+      add_body highlight: params
+    end
+
     def where(params = {})
       subcontext = {filter: true}
       subcontext[:nested] = params.delete(:nested) if params[:nested]
