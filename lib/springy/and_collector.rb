@@ -78,26 +78,25 @@ module Springy
         end
       end
 
-      # def compile_boost_functions
-      #   boost_nodes.map do |n|
-      #     next if n.empty?
-      #     n.json
-      #   end.compact
-      # end
+      def compile_boost_functions
+        boost_nodes.map do |n|
+          next if n.empty?
+          n.json
+        end.compact
+      end
 
-      # def compile_function_score_options
-      #   boost_nodes.reduce({}) do |options, node|
-      #     options.merge(node.context[:fn_score] || {})
-      #   end
-      # end
+      def compile_function_score_options
+        boost_nodes.reduce({}) do |options, node|
+          options.merge(node.context[:fn_score] || {})
+        end
+      end
 
-      # def function_score_node
-      #   function_score_json = compile_function_score_options
-      #   function_score_json[:functions] = compile_boost_functions
-      #   function_score_json[:query] = query_node.json if query_nodes.any?
-      #
-      #   Node.new({function_score: function_score_json}, context)
-      # end
+      def function_score_node
+        function_score_json = compile_function_score_options
+        function_score_json[:functions] = compile_boost_functions
+        function_score_json[:query] = query_node.json if query_nodes.any?
 
+        Node.new({function_score: function_score_json}, context)
+      end
   end
 end

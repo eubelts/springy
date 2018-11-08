@@ -35,11 +35,11 @@ module Springy
       add_root size: size.to_i
     end
     alias :limit_value :limit
-    
-    # def offset(from = nil)
-    #   return @root[:from] || 0 unless from
-    #   add_root from: from.to_i
-    # end
+
+    def offset(from = nil)
+      return @root[:from] || 0 unless from
+      add_root from: from.to_i
+    end
 
     # # page 1 = from: 0, size: per_page
     # # page 2 = from: per_page, size: per_page
@@ -61,10 +61,10 @@ module Springy
     #   Utils.current_page(offset, limit)
     # end
 
-    # def explain
-    #   add_root explain: true
-    # end
-    #
+    def explain
+      add_root explain: true
+    end
+
     def fields(*list)
       add_root _source: list
     end
@@ -131,17 +131,17 @@ module Springy
       add_params params, nil, :geo_distance_node
     end
 
-    # def boost(params = {}, options = {})
-    #   return add_context(:boost) if Utils.is_empty? params
-    #
-    #   subcontext = context.merge(boost: true)
-    #   if params.is_a? self.class
-    #     boost_json = options.merge(filter: params.json)
-    #     add_nodes Node.new(boost_json, subcontext)
-    #   else
-    #     add_nodes Factory.raw_boost_node(params, subcontext)
-    #   end
-    # end
+    def boost(params = {}, options = {})
+      return add_context(:boost) if Utils.is_empty? params
+
+      subcontext = context.merge(boost: true)
+      if params.is_a? self.class
+        boost_json = options.merge(filter: params.json)
+        add_nodes Node.new(boost_json, subcontext)
+      else
+        add_nodes Factory.raw_boost_node(params, subcontext)
+      end
+    end
     #
     # def field_value(params = {})
     #   add_params params, :boost, :field_value_function_node

@@ -22,14 +22,14 @@ module Springy
     #   {}
     # end
     #
-    # def extract_boost_params!(params)
-    #   Utils.extract_options!(params, BOOST_OPTIONS)
-    # end
-    #
-    # def extract_function_score_options!(params)
-    #   Utils.extract_options!(params, FUNCTION_SCORE_OPTIONS)
-    # end
-    #
+    def extract_boost_params!(params)
+      Utils.extract_options!(params, BOOST_OPTIONS)
+    end
+
+    def extract_function_score_options!(params)
+      Utils.extract_options!(params, FUNCTION_SCORE_OPTIONS)
+    end
+    
     def dotify_params(params, context)
       if context[:nested]
         Utils.nestify(params)
@@ -45,16 +45,16 @@ module Springy
         Node.new(params, context)
       end
     end
-    #
-    # def raw_boost_node(params, context)
-    #   boost_params       = extract_boost_params!(params)
-    #   context[:fn_score] = extract_function_score_options!(params)
-    #   context[:boost]    = true
-    #   context[:filter]   = true
-    #   boost_params.merge!(filter: params) unless Utils.is_empty? params
-    #   Node.new(boost_params, context)
-    # end
-    #
+
+    def raw_boost_node(params, context)
+      boost_params       = extract_boost_params!(params)
+      context[:fn_score] = extract_function_score_options!(params)
+      context[:boost]    = true
+      context[:filter]   = true
+      boost_params.merge!(filter: params) unless Utils.is_empty? params
+      Node.new(boost_params, context)
+    end
+
     def context_nodes(params, context = default_context)
       if context[:boost]
         params_to_boost(params, context)

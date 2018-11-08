@@ -23,13 +23,12 @@ describe 'Root actions' do
     expect(subject.limit(1).total).to eq(3)
   end
 
-  # it 'runs an offset' do
-  #   expect(subject.offset(1).count).to eq(subject.count - 1)
-  # end
-  #
-  # specify 'explain' do
-  #   results = subject.explain.match(_all: found['name']).results
-  #   expect(results.first['_explanation']).to_not be_empty
-  # end
+  it 'runs an offset' do
+    expect(subject.offset(1).count).to eq(subject.count - 1)
+  end
 
+  specify 'explain' do
+    results = subject.explain.match(_all: found['name']).results
+    expect(results.first['_explanation']).to_not be_empty
+  end
 end

@@ -26,14 +26,14 @@ module Springy
         true
       end
 
-      # # generates a hash of specified options,
-      # # removing them from the original hash
-      # def extract_options!(params, list)
-      #   output = Hash[list.map do |opt|
-      #     [opt, params.delete(opt)]
-      #   end].keep_if {|k,v| !is_empty?(v)}
-      # end
-      #
+      # generates a hash of specified options,
+      # removing them from the original hash
+      def extract_options!(params, list)
+        output = Hash[list.map do |opt|
+          [opt, params.delete(opt)]
+        end].keep_if {|k,v| !is_empty?(v)}
+      end
+
       # # must be shared between api & results
       # def current_page(offset, limit)
       #   ((offset + 1.0) / limit).ceil

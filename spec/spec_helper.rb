@@ -59,10 +59,10 @@ RSpec.shared_context 'integration specs', :integration do
     expect(scores.all?{|s| s == scores.first}).to eq(true)
   end
 
-  # def check_boost(a)
-  #   scores = a.scores
-  #   expect(scores[found['id']]).to be > scores[not_found['id']]
-  # end
+  def check_boost(a)
+    scores = a.scores
+    expect(scores[found['id']]).to be > scores[not_found['id']]
+  end
 end
 
 def fixture(name)
