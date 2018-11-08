@@ -17,10 +17,10 @@ module Springy
       self.class.new nodes, new_context
     end
 
-    # def context?(*args)
-    #   args.all? {|c| !!context[c] }
-    # end
-    #
+    def context?(*args)
+      args.all? {|c| !!context[c] }
+    end
+
     def node
       @node ||= if function_score_node?
         function_score_node

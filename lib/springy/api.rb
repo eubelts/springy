@@ -51,12 +51,12 @@ module Springy
       add_root from: start * per, size: per
     end
 
-    # def per(num = nil)
-    #   return limit if num.nil?
-    #   add_root size: [num.to_i, 1].max
-    # end
-    # alias :per_page :per
-    
+    def per(num = nil)
+      return limit if num.nil?
+      add_root size: [num.to_i, 1].max
+    end
+    alias :per_page :per
+
     def current_page
       Utils.current_page(offset, limit)
     end

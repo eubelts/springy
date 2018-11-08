@@ -10,9 +10,11 @@ require 'springy/and_collector'
 require 'springy/factory'
 require 'springy/node'
 require 'springy/results'
+require 'springy/scopes'
+require 'springy/errors'
 
 module Springy
-  
+
   module_function
 
   def client

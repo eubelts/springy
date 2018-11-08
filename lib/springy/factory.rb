@@ -18,10 +18,10 @@ module Springy
 
     module_function
 
-    # def default_context
-    #   {}
-    # end
-    #
+    def default_context
+      {}
+    end
+
     def extract_boost_params!(params)
       Utils.extract_options!(params, BOOST_OPTIONS)
     end

@@ -21,10 +21,10 @@ module Springy
       @response = response
     end
 
-    # def fake?
-    #   !!request[:fake]
-    # end
-    #
+    def fake?
+      !!request[:fake]
+    end
+
     def limit
       (request['size'] || request[:size] || API::DEFAULT_PER_PAGE).to_i
     end
@@ -72,9 +72,10 @@ module Springy
         source.merge(selected).merge(fields)
       end
     end
-    # alias :hits :results
-    # alias :to_a :results
-    #
+
+    alias :hits :results
+    alias :to_a :results
+
     def ids
       @ids ||= response['hits']['hits'].map {|r| coerce_id r['_id'] }
     end
