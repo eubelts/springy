@@ -88,14 +88,14 @@ module Springy
     #   }]
     # end
 
-    # def aggregations(*args)
-    #   key = args.map(&:to_s).join('.')
-    #   @aggregations ||= {}
-    #   @aggregations[key] ||= begin
-    #     args.reduce(response['aggregations']) do |agg, name|
-    #       agg = agg[name.to_s] unless agg.nil?
-    #     end
-    #   end
-    # end
+    def aggregations(*args)
+      key = args.map(&:to_s).join('.')
+      @aggregations ||= {}
+      @aggregations[key] ||= begin
+        args.reduce(response['aggregations']) do |agg, name|
+          agg = agg[name.to_s] unless agg.nil?
+        end
+      end
+    end
   end
 end

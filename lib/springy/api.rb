@@ -71,10 +71,10 @@ module Springy
     #
     # alias :source :fields
     #
-    # def aggs(params = {})
-    #   add_body aggs: params
-    # end
-    #
+    def aggs(params = {})
+      add_body aggs: params
+    end
+
     # def highlight(params = {})
     #   add_body highlight: params
     # end
@@ -215,14 +215,14 @@ module Springy
       #   ))
       # end
 
-      # def add_body(options = {})
-      #   self.class.new(opts.merge(
-      #     nodes:    collector.nodes,
-      #     root:     root,
-      #     body:     body.merge(options),
-      #     context:  context
-      #   ))
-      # end
+      def add_body(options = {})
+        self.class.new(opts.merge(
+          nodes:    collector.nodes,
+          root:     root,
+          body:     body.merge(options),
+          context:  context
+        ))
+      end
 
       def add_context(*args)
         self.class.new(opts.merge(
