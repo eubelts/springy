@@ -25,23 +25,24 @@ module Springy
     #   !!request[:fake]
     # end
     #
-    # def limit
-    #   (request['size'] || request[:size] || API::DEFAULT_PER_PAGE).to_i
-    # end
-    # alias :size         :limit
-    # alias :limit_value  :limit
-    # alias :per_page     :limit
-    #
-    # def offset
-    #   (request['from'] || request[:from] || 0).to_i
-    # end
-    # alias :from         :offset
-    # alias :offset_value :offset
-    #
-    # def current_page
-    #   Utils.current_page(offset, limit)
-    # end
-    #
+    def limit
+      (request['size'] || request[:size] || API::DEFAULT_PER_PAGE).to_i
+    end
+
+    alias :size         :limit
+    alias :limit_value  :limit
+    alias :per_page     :limit
+
+    def offset
+      (request['from'] || request[:from] || 0).to_i
+    end
+    alias :from         :offset
+    alias :offset_value :offset
+
+    def current_page
+      Utils.current_page(offset, limit)
+    end
+
     def total
       response['hits']['total']
     end
@@ -49,11 +50,11 @@ module Springy
     alias :count        :total
     alias :length       :total
     alias :size         :total
-    
-    # def total_pages
-    #   (total.to_f / limit_value).ceil
-    # end
-    #
+
+    def total_pages
+      (total.to_f / limit_value).ceil
+    end
+
     def results
       @results ||= response['hits']['hits'].map do |r|
         fields        = r.reject {|k, _| k == '_source' || k == 'fields'}
@@ -82,11 +83,11 @@ module Springy
       @scores ||= Hash[results.map {|r| [coerce_id(r['_id']), r['_score']]}]
     end
 
-    # def explanations
-    #   @explanations ||= Hash[results.map {|r|
-    #     [coerce_id(r['_id']), r['_explanation']]
-    #   }]
-    # end
+    def explanations
+      @explanations ||= Hash[results.map {|r|
+        [coerce_id(r['_id']), r['_explanation']]
+      }]
+    end
 
     def aggregations(*args)
       key = args.map(&:to_s).join('.')
