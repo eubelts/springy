@@ -26,10 +26,10 @@ module Springy
       @context    = opts[:context]  || {}
     end
 
-    # def context?(*args)
-    #   (args - context.keys).empty?
-    # end
-    #
+    def context?(*args)
+      (args - context.keys).empty?
+    end
+
     def limit(size = nil)
       return @root[:size] || DEFAULT_PER_PAGE unless size
       add_root size: size.to_i

@@ -6,7 +6,7 @@
   "from": 0,
   "body": {
     "query": {
-      "filtered": {
+      "bool": {
         "query": {
           "match": {
             "_all": "game"
